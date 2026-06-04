@@ -1,0 +1,11 @@
+import pandas as pd
+import streamlit as st
+
+@st.cache_data
+def load_data():
+    df = pd.read_csv("data/spotify-tracks-dataset.csv")
+
+    # Basic cleaning
+    df.drop_duplicates(inplace=True)
+
+    return df
